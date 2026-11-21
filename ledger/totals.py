@@ -18,8 +18,8 @@ def invoice_total(items):
     Returns the total rounded to cents.
     """
     total = 0.0
-    for price, qty, discount in items:
+    for price, qty, discount_percent in items:
         base = line_total(price, qty)
-        base -= base * discount
+        base -= base * discount_percent / 100.0
         total += base
     return round(total, 2)
