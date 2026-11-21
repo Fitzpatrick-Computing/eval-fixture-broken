@@ -20,6 +20,6 @@ def invoice_total(items):
     total = 0.0
     for price, qty, discount in items:
         base = line_total(price, qty)
-        base -= base * discount
+        base -= base * discount / 100
         total += base
     return round(total, 2)
